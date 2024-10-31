@@ -1,0 +1,15 @@
+spring:
+  security:
+    saml2:
+      relyingparty:
+        registration:
+          localkeycloak:
+            signing:
+              credentials:
+                - private-key-location: classpath:local.key
+                  certificate-location: classpath:local.crt
+            singlelogout:
+              binding: post
+              response-url: "{baseUrl}/logout/saml2/slo"
+            assertingparty:
+              metadata-uri: "classpath:metadata/metadata-idp-localkeycloak.xml"
